@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== "undefined" ? title : "Хакатоны Беларуси" %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">Хакатоны Беларуси</a>
+
+     <nav>
+  <a href="/">Главная</a>
+
+  <% if (typeof user !== "undefined" && user) { %>
+    <a href="/add?auth=1">Добавить</a>
+    <span class="user-info">
+      <strong><%= user.name %></strong>
+      <a href="/">Выйти</a>
+    </span>
+  <% } else { %>
+    <span class="user-info">
+      Гость
+      <a href="/?auth=1">Войти</a>
+    </span>
+  <% } %>
+</nav>
+    </div>
+  </header>
+  <main>

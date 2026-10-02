@@ -1,0 +1,40 @@
+<%- include("partials/header", { title, user }) %>
+
+<div class="page-header">
+  <h1>Хакатоны Беларуси</h1>
+  <p class="subtitle">Актуальные соревнования для разработчиков, дизайнеров и аналитиков</p>
+</div>
+
+<% if (items.length === 0) { %>
+  <p class="empty">
+    Пока нет хакатонов.
+    <% if (typeof user !== "undefined" && user) { %>
+      <a href="/add">Добавьте первый</a>.
+    <% } %>
+  </p>
+<% } else { %>
+  <table>
+    <thead>
+      <tr>
+        <th>№</th>
+        <th>Название</th>
+        <th>Дата</th>
+        <th>Призовой фонд</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% items.forEach(item => { %>
+        <tr>
+          <td class="num"><%= item.id %></td>
+          <td><strong><%= item.title %></strong></td>
+          <td><%= item.date %></td>
+          <td class="prize"><%= item.prize %></td>
+          <td><a href="/item/<%= item.id %>" class="details-link">Подробнее</a></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } %>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,27 @@
+<%- include("partials/header", { title, user }) %>
+
+<div class="item-page">
+  <div class="item-header">
+    <h1><%= item.title %></h1>
+    <span class="item-badge">№<%= item.id %></span>
+  </div>
+
+  <div class="item-info">
+    <div class="info-row">
+      <span class="info-label">Дата проведения</span>
+      <span class="info-value"><%= item.date %></span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Призовой фонд</span>
+      <span class="info-value prize"><%= item.prize %></span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Описание</span>
+      <span class="info-value"><%= item.description %></span>
+    </div>
+  </div>
+
+  <a href="/" class="back-link">← Вернуться к списку</a>
+</div>
+
+<%- include("partials/footer") %>

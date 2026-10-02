@@ -1,0 +1,55 @@
+<%- include("partials/header", { title, user }) %>
+
+<div class="page-header">
+  <h1>Новый хакатон</h1>
+  <p class="subtitle">Заполните информацию о соревновании</p>
+</div>
+
+<form action="/add?auth=1" method="POST" class="add-form">
+  <div class="form-group">
+    <label for="title">Название хакатона *</label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      required
+      maxlength="100"
+      placeholder="Например: Гомель Digital Weekend"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="description">Описание *</label>
+    <textarea
+      id="description"
+      name="description"
+      required
+      rows="4"
+      placeholder="Расскажите о тематике, задачах, условиях участия"
+    ></textarea>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="date">Дата проведения *</label>
+      <input type="date" id="date" name="date" required>
+    </div>
+
+    <div class="form-group">
+      <label for="prize">Призовой фонд</label>
+      <input
+        type="text"
+        id="prize"
+        name="prize"
+        placeholder="Например: 5 000 BYN"
+      >
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="btn-primary">Сохранить</button>
+    <a href="/" class="btn-cancel">Отмена</a>
+  </div>
+</form>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,11 @@
+<%- include("partials/header", { title, user }) %>
+
+<div class="error-page">
+  <div class="error-code">500</div>
+  <h2>Внутренняя ошибка сервера</h2>
+  <p class="error-message"><%= message %></p>
+  <p class="error-hint">Попробуйте обновить страницу позже.</p>
+  <a href="/" class="btn-primary">На главную</a>
+</div>
+
+<%- include("partials/footer") %>
