@@ -1,0 +1,37 @@
+<%- include("partials/header", { title, user }) %>
+
+<div class="page-header">
+  <h1>Журнал запросов</h1>
+  <p class="subtitle">Логи сохраняются в массив в памяти и отображаются здесь</p>
+</div>
+
+<% if (logs.length === 0) { %>
+  <p class="empty">Пока нет записей.</p>
+<% } else { %>
+  <table>
+    <thead>
+      <tr>
+        <th>№</th>
+        <th>Время</th>
+        <th>Событие</th>
+        <th>URL</th>
+        <th>Статус</th>
+        <th>Длительность</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% logs.slice().reverse().forEach((log, index) => { %>
+        <tr>
+          <td class="num"><%= logs.length - index %></td>
+          <td><%= log.time %></td>
+          <td><strong><%= log.event %></strong></td>
+          <td><%= log.url %></td>
+          <td><%= log.status %></td>
+          <td><%= log.duration %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } %>
+
+<%- include("partials/footer") %>

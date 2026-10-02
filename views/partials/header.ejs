@@ -16,6 +16,7 @@
 
   <% if (typeof user !== "undefined" && user) { %>
     <a href="/add?auth=1">Добавить</a>
+    <a href="/logs">Логи</a>   <!-- ← добавили -->
     <span class="user-info">
       <strong><%= user.name %></strong>
       <a href="/">Выйти</a>

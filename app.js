@@ -97,6 +97,15 @@ app.post("/add", requireAuth, (req, res) => {
   res.redirect("/");
 });
 
+// Страница просмотра логов
+app.get("/logs", (req, res) => {
+  res.render("logs", {
+    title: "Журнал запросов",
+    logs: logger.getLogs(),
+    user: req.user,
+  });
+});
+
 app.use(notFound);
 
 app.use(serverError);
